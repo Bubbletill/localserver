@@ -4,7 +4,7 @@ from gpiozero import JamHat
 import json
 
 app = Flask(__name__)
-#jh = JamHat()
+jh = JamHat()
 
 
 @app.route("/")
