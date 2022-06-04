@@ -1,4 +1,5 @@
-data.json # Register specific data, such as regno, storeno, and access token
+# Register specific data, such as regno, storeno, and access token
+data.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,5 +1,6 @@
 {
   "storeno": 1,
   "regno": 2,
-  "token": "bubbletilld3m0one"
+  "token": "bubbletilld3m0one",
+  "backoffice": "/path/to/backoffice/jar"
 }

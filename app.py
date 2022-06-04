@@ -2,6 +2,7 @@ from flask import Flask
 from time import sleep
 from gpiozero import JamHat
 import json
+from os import system
 
 app = Flask(__name__)
 jh = JamHat()
@@ -62,6 +63,16 @@ def info_accesstoken():
     with open('data.json', 'r') as datafile:
         data = json.loads(datafile.read())
         return '' + str(data['token']), 200
+
+
+# Launch apps
+@app.route('/launch/backoffice')
+def launch_backoffice():
+    with open('data.json', 'r') as datafile:
+        data = json.loads(datafile.read())
+        system("java -jar " + data['backoffice'] + " &")
+        return '', 200
+
 
 
 if __name__ == '__main__':
