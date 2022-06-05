@@ -2,10 +2,17 @@ from flask import Flask
 from time import sleep
 from gpiozero import JamHat
 import json
-from os import system
+import subprocess
 
 app = Flask(__name__)
 jh = JamHat()
+
+with open('data.json', 'r') as datafile:
+    data = json.loads(datafile.read())
+    if int(data['regno']) != -1:
+        subprocess.Popen(["java", "-jar", data["pos"]])
+    else:
+        subprocess.Popen(["java", "-jar", data["backoffice"]])
 
 
 @app.route("/")
@@ -70,7 +77,7 @@ def info_accesstoken():
 def launch_backoffice():
     with open('data.json', 'r') as datafile:
         data = json.loads(datafile.read())
-        system("java -jar " + data['backoffice'] + " &")
+        subprocess.Popen(["java", "-jar", data["backoffice"]])
         return '', 200
 
 
