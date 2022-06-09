@@ -1,6 +1,8 @@
 # Register specific data, such as regno, storeno, and access token
 data.json
 
+Adafruit_Thermal.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
