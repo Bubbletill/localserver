@@ -84,6 +84,7 @@ def print_receipt():
         return '{"success": false, "message":"Incomplete request."}', 200
 
     items = json.loads(request.get_json()['items'])
+    tender = dict(items['tender'])
 
     printer.setDefault()
 
@@ -125,11 +126,12 @@ def print_receipt():
     printer.feed(1)
     printer.println("TOTAL £" + str(basketTotal))
 
-    printer.println("Insert tender here")
+    for key in tender:
+        printer.println(key + " £" + tender[key])
 
     printer.feed(3)
     printer.println("Store: " + request.get_json()['store'] + " | Reg: " + request.get_json()['reg'] + " | Trans: " + request.get_json()['trans'])
-    printer.println("Oper: " + request.get_json()['oper'] + " | Date Time: " + request.get_json()['datetime'])
+    printer.println("Oper: " + request.get_json()['oper'] + " | " + request.get_json()['datetime'])
 
     printer.feed(1)
 
