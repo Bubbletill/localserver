@@ -6,8 +6,8 @@ import subprocess
 from Adafruit_Thermal import *
 
 app = Flask(__name__)
-jh = JamHat()
-printer = Adafruit_Thermal("/dev/usb/lp0")
+#jh = JamHat()
+#printer = Adafruit_Thermal("/dev/usb/lp0")
 
 with open('data.json', 'r') as datafile:
     data = json.loads(datafile.read())
@@ -127,7 +127,7 @@ def print_receipt():
     printer.println("TOTAL £" + str(basketTotal))
 
     for key in tender:
-        printer.println(key + " £" + tender[key])
+        printer.println(key + " £" + str(tender[key]))
 
     printer.feed(3)
     printer.println("Store: " + request.get_json()['store'] + " | Reg: " + request.get_json()['reg'] + " | Trans: " + request.get_json()['trans'])
