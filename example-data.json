@@ -2,6 +2,7 @@
   "storeno": 1,
   "regno": 2,
   "token": "bubbletilld3m0one",
+  "backend": "http://localhost:5000",
   "pos": "/path/to/pos/jar",
   "backoffice": "/path/to/backoffice/jar"
 }
