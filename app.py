@@ -12,10 +12,10 @@ app = Flask(__name__)
 
 with open('data.json', 'r') as datafile:
     data = json.loads(datafile.read())
-    if int(data['regno']) != -1:
-        subprocess.Popen(["java", "-jar", data["pos"]])
-    else:
+    if int(data['regno']) == -1:
         subprocess.Popen(["java", "-jar", data["backoffice"]])
+    elif int(data['regno']) > 0:
+        subprocess.Popen(["java", "-jar", data["pos"]])
 
 
 @app.route("/")
