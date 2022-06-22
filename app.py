@@ -246,6 +246,13 @@ def launch_backoffice():
         subprocess.Popen(["java", "-jar", data["backoffice"]])
         return '', 200
 
+@app.route('/launch/pos')
+def launch_pos():
+    with open('data.json', 'r') as datafile:
+        data = json.loads(datafile.read())
+        subprocess.Popen(["java", "-jar", data["pos"]])
+        return '', 200
+
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=5001)
