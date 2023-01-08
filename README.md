@@ -1,2 +1,2 @@
-# Local Server
-Flask server that runs on every register, providing the POS with access to the buzzer and the register info (such as store number, register number and access token)
+# LOCAL SERVER HAS BEEN PHASED OUT
+Local server has been phased out in favor of an in-application solution. 
